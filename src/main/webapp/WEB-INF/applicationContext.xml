@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <context:annotation-config />
+    <context:component-scan base-package="example.services" />
+
+    <bean class="org.springframework.web.context.support.ServletContextPropertyPlaceholderConfigurer">
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+    </bean>
+
+    <bean id="jmsFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616" />
+    </bean>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="messageConverter" ref="spikeMessageConverter" />
+        <property name="defaultDestinationName" value="example.queue" />
+        <property name="connectionFactory" ref="jmsFactory" />
+    </bean>
+
+    <bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="destinationName" value="example.queue" />
+        <property name="connectionFactory" ref="jmsFactory" />
+        <property name="autoStartup" value="false" />
+        <property name="messageListener">
+            <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+                <property name="messageConverter" ref="spikeMessageConverter" />
+                <property name="delegate" ref="spikeMessageListener" />
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="leadershipNotifier" class="example.services.AsyncLeadershipNotifier" />
+
+    <bean id="leaderListener" class="example.services.LifecycleLeaderSelectorListener">
+        <constructor-arg ref="jmsContainer" />
+        <!-- The next two arguments are only required if you want to periodically relinquish leadership. -->
+        <!--<constructor-arg ref="leadershipNotifier" />-->
+        <!--<constructor-arg value="30000" />-->
+    </bean>
+
+    <bean id="leaderSelector" class="example.services.ZookeeperLeaderSelector">
+        <constructor-arg ref="leaderListener" />
+    </bean>
+
+    <bean id="statsInterceptor" class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor">
+        <property name="loggerName" value="STATS" />
+    </bean>
+
+    <bean id="repositoryPerformance" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="proxyTargetClass" value="false" />
+        <property name="beanNames">
+            <list>
+                <value>*Repository</value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <idref local="statsInterceptor" />
+            </list>
+        </property>
+    </bean>
+
+</beans>

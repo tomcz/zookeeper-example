@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AntConfiguration">
+    <defaultAnt bundledAnt="true" />
+  </component>
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Javac" />
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="?*.properties" />
+      <entry name="?*.xml" />
+      <entry name="?*.gif" />
+      <entry name="?*.png" />
+      <entry name="?*.jpeg" />
+      <entry name="?*.jpg" />
+      <entry name="?*.html" />
+      <entry name="?*.dtd" />
+      <entry name="?*.tld" />
+      <entry name="?*.ftl" />
+    </wildcardResourcePatterns>
+    <annotationProcessing enabled="false" useClasspath="true" />
+  </component>
+  <component name="CopyrightManager" default="">
+    <module2copyright />
+  </component>
+  <component name="DependencyValidationManager">
+    <option name="SKIP_IMPORT_STATEMENTS" value="false" />
+  </component>
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" />
+    <option name="OPTION_SCOPE" value="protected" />
+    <option name="OPTION_HIERARCHY" value="true" />
+    <option name="OPTION_NAVIGATOR" value="true" />
+    <option name="OPTION_INDEX" value="true" />
+    <option name="OPTION_SEPARATE_INDEX" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_USE" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_VERSION" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="true" />
+    <option name="OPTION_DEPRECATED_LIST" value="true" />
+    <option name="OTHER_OPTIONS" value="" />
+    <option name="HEAP_SIZE" />
+    <option name="LOCALE" />
+    <option name="OPEN_IN_BROWSER" value="true" />
+  </component>
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/zookeeper-example.iml" filepath="$PROJECT_DIR$/zookeeper-example.iml" />
+    </modules>
+  </component>
+  <component name="ProjectResources">
+    <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+  </component>
+  <component name="libraryTable">
+    <library name="compile">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/lib/compile/jar" />
+        <root url="file://$PROJECT_DIR$/lib/compile/bundle" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/jcl-over-slf4j-1.6.4.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/curator-recipes-0.5.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/log4j-1.2.16.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/guava-r09.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/cglib-nodep-2.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/spring-beans-3.0.6.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/geronimo-j2ee-management_1.1_spec-1.0.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/curator-client-0.5.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/aopalliance-1.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/jetty-6.1.26.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/activemq-core-5.5.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/spring-tx-3.0.6.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/commons-collections-3.2.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/spring-jms-3.0.6.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/spring-expression-3.0.6.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/spring-context-3.0.6.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/curator-framework-0.5.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/spring-webmvc-3.0.6.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/zookeeper-3.3.3.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/spring-core-3.0.6.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/jta-1.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/jms-api-1.1-rev-1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/spring-web-3.0.6.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/servlet-api-2.5.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/jetty-util-6.1.26.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/spring-context-support-3.0.6.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/kahadb-5.5.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/spring-asm-3.0.6.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/slf4j-log4j12-1.6.4.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/spring-aop-3.0.6.RELEASE.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/compile/source/slf4j-api-1.6.4.jar!/" />
+      </SOURCES>
+      <jarDirectory url="file://$PROJECT_DIR$/lib/compile/bundle" recursive="false" />
+      <jarDirectory url="file://$PROJECT_DIR$/lib/compile/jar" recursive="false" />
+    </library>
+  </component>
+</project>
+
