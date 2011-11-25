@@ -11,14 +11,14 @@ among a number of [Spring](http://www.springsource.com/developer/spring) web app
 
 The three classes involved in this example are:
 
-* example.cli.Zookeeper
+* example.cli.Zookeeper (ant zookeeper)
   * Starts a single Zookeeper service instance. Do NOT use this class in production, instead please use a
     [quorum](http://zookeeper.apache.org/doc/trunk/zookeeperStarted.html#sc_RunningReplicatedZooKeeper).
 
-* example.cli.ActiveMQ
+* example.cli.ActiveMQ (ant activemq)
   * This starts the example ActiveMQ JMS broker.
 
-* example.cli.WebServer
+* example.cli.WebServer (ant webserver)
   * This is the Spring web application that you can use to send messages onto the example JMS queue.
   * You can start as many of these as you want for this example since each listens on a random TCP port.
 

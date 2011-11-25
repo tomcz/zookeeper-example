@@ -12,6 +12,10 @@
         <ivy:configure />
         <ivy:resolve file="ivy.xml" transitive="no" />
         <ivy:retrieve pattern="lib/[conf]/[type]/[artifact]-[revision].[ext]" sync="yes" />
+        <path id="classpath">
+            <fileset dir="lib/compile/jar" />
+            <fileset dir="lib/compile/bundle" />
+        </path>
     </target>
 
     <available file="${ivy.jar.file}" property="ivy.exists" />
@@ -19,6 +23,39 @@
     <target name="fetch-ivy" unless="ivy.exists">
         <mkdir dir="${ivy.default.ivy.user.dir}" />
         <get src="${ivy.jar.source}" dest="${ivy.jar.file}" />
+    </target>
+
+    <target name="clean" description="Clean out build artifacts">
+        <delete dir="build" />
+    </target>
+
+    <target name="compile" depends="fetch-libs">
+        <mkdir dir="build/compile" />
+        <javac srcdir="src/main/java" destdir="build/compile" classpathref="classpath"
+               source="1.6" target="1.6" includeantruntime="no" debug="yes" />
+    </target>
+
+    <macrodef name="run">
+        <attribute name="classname" />
+        <sequential>
+            <java classname="@{classname}" fork="yes" failonerror="yes">
+                <classpath location="src/main/resources" />
+                <classpath location="build/compile" />
+                <classpath refid="classpath" />
+            </java>
+        </sequential>
+    </macrodef>
+
+    <target name="activemq" depends="compile" description="Run ActiveMQ broker">
+        <run classname="example.cli.ActiveMQ" />
+    </target>
+
+    <target name="zookeeper" depends="compile" description="Run Zookeeper service">
+        <run classname="example.cli.Zookeeper" />
+    </target>
+
+    <target name="webserver" depends="compile" description="Run Spring web application">
+        <run classname="example.cli.WebServer" />
     </target>
 
 </project>
