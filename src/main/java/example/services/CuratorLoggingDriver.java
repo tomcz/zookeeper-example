@@ -1,4 +1,4 @@
-package example;
+package example.services;
 
 import com.netflix.curator.drivers.LoggingDriver;
 import org.slf4j.Logger;
