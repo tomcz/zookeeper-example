@@ -7,7 +7,7 @@ by one node (the leader) and should the leader become unavailable that another n
 
 This project is an example of how to integrate the [Apache Zookeeper](http://zookeeper.apache.org/) service using
 the [Curator](https://github.com/Netflix/curator) framework in order to select a single JMS message listener from
-among a number of [Spring](http://www.springsource.com/developer/spring) web applications.
+among a number of [Spring](http://www.springsource.com/developer/spring) web application nodes.
 
 The three classes involved in this example are:
 
