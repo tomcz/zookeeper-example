@@ -10,6 +10,8 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationListener;
 
+import java.util.concurrent.Executors;
+
 public class ZookeeperLeaderSelector implements ApplicationListener<LeadershipRelinquishedEvent>, InitializingBean, DisposableBean {
 
     private final CuratorFramework client;
@@ -26,7 +28,8 @@ public class ZookeeperLeaderSelector implements ApplicationListener<LeadershipRe
 
         client.getZookeeperClient().setLog(new CuratorLoggingDriver());
 
-        selector = new LeaderSelector(client, "/spike", listener);
+        selector = new LeaderSelector(client, "/spike", Executors.defaultThreadFactory(),
+                Executors.newSingleThreadExecutor(), listener);
     }
 
     @Override
