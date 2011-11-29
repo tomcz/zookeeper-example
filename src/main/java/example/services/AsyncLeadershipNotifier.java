@@ -10,9 +10,17 @@ import java.util.concurrent.Executors;
 
 public class AsyncLeadershipNotifier implements LeadershipNotifier, ApplicationEventPublisherAware, DisposableBean {
 
-    private final ExecutorService executor = Executors.newSingleThreadExecutor();
+    private final ExecutorService executor;
 
     private ApplicationEventPublisher publisher;
+
+    public AsyncLeadershipNotifier() {
+        this(Executors.newSingleThreadExecutor());
+    }
+
+    public AsyncLeadershipNotifier(ExecutorService executor) {
+        this.executor = executor;
+    }
 
     @Override
     public void setApplicationEventPublisher(ApplicationEventPublisher publisher) {
